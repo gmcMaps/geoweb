@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <meta charset='utf-8' />
+    <title>Mapa 3D</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='css/estilobase.css' rel='stylesheet' />
+
+    <script src='3d.js'></script>
+    <script>
+        //Añadir vuestor token!!
+        var map;
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoiZ2VtbWFtb250YW5lNCIsImEiOiJjbGNydmk3amowNHJ3M3BzMTQ1OWVrbjM4In0.-sQt2TUvGTfx5nZnWLyPIA';
+             map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/satellite-streets-v10',
+                center: [2.16859, 41.3954],
+                zoom: 12,
+                attributionControl: false,
+                pitch: 45, //INCLINACION DEL 3D
+                projection: 'globe',
+                hash: true
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.on('load', function () {
+             add3D();
+            }); //fin onload
+
+        } // final init
+    </script>
+    </head>
+
+    <body onload="init()">
+
+        <div id="map"></div>
+    </body>
+
+    </html>

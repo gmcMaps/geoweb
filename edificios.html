@@ -14,6 +14,7 @@
 
 
     <script src='js/edificios.js'></script>
+    <script src='3d.js'></script>
 
     <script>
         //Añadir vuestor token y/o estilo !!
@@ -46,6 +47,7 @@
 
                 addEdificiosCapa();
                 addPopupToMapEdificios("edificios");
+                add3D();
 
 
             }); //fin onload
@@ -62,6 +64,8 @@
 
             <label id="altura">Más de 0 pisos</label>
             <input id="slider" onChange="filtrarEdificios(this.value)" type="range" min="1" max="50" step="1" value="0" />
+            <hr>
+            <input type="checkbox"> Capa edificios
         </div>
     
 
